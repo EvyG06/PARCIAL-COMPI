@@ -19,7 +19,7 @@
 ## Integrante A
 
 - [x] Fase 1: esqueleto Maven + JavaFX + repo Git
-- [ ] Misión 1 (12%): parser de grilla, BFS con cola, DFS **iterativo con stack explícito**
+- [x] Misión 1 (12%): parser de grilla, BFS con cola, DFS **iterativo con stack explícito**
       (orden fijo de vecinos: arriba, abajo, izquierda, derecha) + test (`BFS 18 DFS 32`)
 - [ ] Misión 3 (20%): Floyd-Warshall maximizante (con pase extra de pares no acotados),
       Bellman-Ford maximizante (propagación de ciclos positivos), **cross-check** entre ambos

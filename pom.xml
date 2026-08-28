@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.eia.felinas</groupId>
+    <artifactId>feline-graph-chronicles</artifactId>
+    <version>1.0.0</version>
+    <name>The Feline Graph Chronicles</name>
+    <description>Parcial de Lenguajes y Compiladores - Universidad EIA. Pola y Minerva contra Limon.</description>
+
+    <properties>
+        <!-- El parcial exige JDK 17 o superior; compilamos para 17 para maxima compatibilidad -->
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- JavaFX 21 es LTS y corre sobre cualquier JDK 17+ -->
+        <javafx.version>21.0.4</javafx.version>
+        <junit.version>5.10.2</junit.version>
+    </properties>
+
+    <dependencies>
+        <!-- GUI: JavaFX (permitido por el enunciado, seccion 2.1) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <!-- Tests automatizados (requisito 7.4: al menos un test por algoritmo) -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Ejecucion con un solo comando: mvnw javafx:run (requisito 7.4) -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>com.eia.felinas.Main</mainClass>
+                </configuration>
+            </plugin>
+            <!-- Ejecuta los tests JUnit 5 en mvnw test -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>

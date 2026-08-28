@@ -1,8 +1,6 @@
 # División del trabajo — The Feline Graph Chronicles
 
 > Parcial de Lenguajes y Compiladores (EIA). Entrega: **13/09/2026 23:59** (repo + release tag).
-> Defensa individual: **14/09/2026** — ojo: a cada uno le preguntan por TODO el proyecto,
-> incluido lo que escribió el otro. Al terminar cada parte, explicársela al compañero.
 
 ## Reglas comunes (leerlas antes de escribir código)
 

@@ -44,6 +44,7 @@ public final class Dfs {
                                            int filaInicio, int colInicio,
                                            int filaDestino, int colDestino) {
         // Mismas reglas de borde que BFS (enunciado, Mision 1).
+
         if (grilla.hayBomba(filaInicio, colInicio) || grilla.hayBomba(filaDestino, colDestino)) {
             return ResultadoBusqueda.inalcanzable();
         }
@@ -59,6 +60,7 @@ public final class Dfs {
 
         // Dos pilas paralelas = los marcos de la recursion simulada.
         // La profundidad nunca supera el numero de celdas.
+
         int[] pilaCelda = new int[totalCeldas];
         int[] pilaDireccion = new int[totalCeldas];
         int cima = 0;

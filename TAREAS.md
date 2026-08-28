@@ -19,7 +19,7 @@
 - [x] Fase 1: esqueleto Maven + JavaFX + repo Git
 - [x] Misión 1 (12%): parser de grilla, BFS con cola, DFS **iterativo con stack explícito**
       (orden fijo de vecinos: arriba, abajo, izquierda, derecha) + test (`BFS 18 DFS 32`)
-- [ ] Misión 3 (20%): Floyd-Warshall maximizante (con pase extra de pares no acotados),
+- [x] Misión 3 (20%): Floyd-Warshall maximizante (con pase extra de pares no acotados),
       Bellman-Ford maximizante (propagación de ciclos positivos), **cross-check** entre ambos
       + tests (`110`, `Infinite churun!`, `-65`)
 - [ ] Visualización de la grilla de M1 (camino resaltado, hasta 50×50)

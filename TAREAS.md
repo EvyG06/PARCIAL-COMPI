@@ -22,9 +22,11 @@
 - [x] Misión 3 (20%): Floyd-Warshall maximizante (con pase extra de pares no acotados),
       Bellman-Ford maximizante (propagación de ciclos positivos), **cross-check** entre ambos
       + tests (`110`, `Infinite churun!`, `-65`)
-- [ ] Visualización de la grilla de M1 (camino resaltado, hasta 50×50)
-- [ ] Visualización de la matriz N×N de M3 (scrollable hasta N=100)
-- [ ] README.md (integrantes, comando único de build/run, estructura, decisiones)
+- [x] Visualización de la grilla de M1 (camino resaltado, hasta 50×50) —
+      `VisualizadorGrilla`, verificado visualmente (BFS 18 / DFS 32 del sample)
+- [x] Visualización de la matriz N×N de M3 (scrollable hasta N=100) —
+      `VisualizadorMatrizFloydWarshall`, con aviso de discrepancia del cross-check
+- [x] README.md (integrantes, comando único de build/run, estructura, decisiones)
 
 ## Integrante B
 

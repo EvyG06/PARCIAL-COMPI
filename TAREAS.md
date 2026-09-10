@@ -30,10 +30,10 @@
 
 ## Integrante B
 
-- [ ] Misión 2 (12%): Dijkstra con `java.util.PriorityQueue` (obligatoria; el O(N²) no se acepta),
+- [x] Misión 2 (12%): Dijkstra con `java.util.PriorityQueue` (obligatoria; el O(N²) no se acepta),
       grafo no dirigido, quedarse con la arista más barata o guardar todas
       + test (`100`, `150`, `Nina is very sad`)
-- [ ] Misión 4 (12%): Union-Find con path compression + union by size/rank, Kruskal ordenando
+- [x] Misión 4 (12%): Union-Find con path compression + union by size/rank, Kruskal ordenando
       aristas (O(C log C)) + test (`55`, y el caso `Limon cut too many cables`)
 - [ ] GUI base (14%): selector de las 4 misiones, áreas de texto de entrada/salida,
       botón "cargar sample" por misión, manejo de errores legible, tema gatuno

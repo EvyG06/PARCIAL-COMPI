@@ -119,10 +119,3 @@ mañana cambiáramos JavaFX por Swing, ni una línea de `algoritmos`,
 _(Esta sección se debe mantener actualizada a medida que avanza el
 proyecto; antes de la entrega final no debe quedar ningún ítem pendiente
 sin resolver o sin explicar.)_
-
-## Uso de IA
-
-Este proyecto usó asistencia de IA de forma extensa y declarada, tal como
-permite y exige el enunciado (sección 8). El detalle completo —
-herramientas usadas, prompts decisivos y errores corregidos— está en
-[AI_USAGE.md](AI_USAGE.md).

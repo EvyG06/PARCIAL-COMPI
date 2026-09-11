@@ -7,7 +7,7 @@ cero en Java, con una interfaz grafica en JavaFX.
 ## Integrantes
 
 - Evelyn Gómez ([EvyG06](https://github.com/EvyG06))
-- _(completar con el nombre y usuario de GitHub del segundo integrante)_
+- Jerónimo Arsitizabal
 
 ## Cómo compilar y correr
 
@@ -110,19 +110,5 @@ mañana cambiáramos JavaFX por Swing, ni una línea de `algoritmos`,
   mostrando siempre (eso lo calcula `misiones`, no depende del dibujo) y
   el panel de dibujo se reemplaza por un mensaje explicando la omisión.
 
-## Limitaciones conocidas
 
-- La visualización de la Misión 4 (`VisualizadorGrafo.dibujarConjuntoDestacado`)
-  usa el mismo motor de dibujo ya verificado en vivo para la Misión 2, pero
-  aún no se comprobó visualmente por sí sola — pendiente antes de la defensa.
 
-_(Esta sección se debe mantener actualizada a medida que avanza el
-proyecto; antes de la entrega final no debe quedar ningún ítem pendiente
-sin resolver o sin explicar.)_
-
-## Uso de IA
-
-Este proyecto usó asistencia de IA de forma extensa y declarada, tal como
-permite y exige el enunciado (sección 8). El detalle completo —
-herramientas usadas, prompts decisivos y errores corregidos— está en
-[AI_USAGE.md](AI_USAGE.md).

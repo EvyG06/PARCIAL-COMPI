@@ -6,7 +6,7 @@ cero en Java, con una interfaz grafica en JavaFX.
 
 ## Integrantes
 
-- Evelyn Gómez ([EvyG06](https://github.com/EvyG06))
+- Evelyn Gómez 
 - Jerónimo Arsitizabal
 
 ## Cómo compilar y correr

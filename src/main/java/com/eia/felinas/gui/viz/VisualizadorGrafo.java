@@ -39,13 +39,13 @@ public final class VisualizadorGrafo {
     private static final double RADIO_MINIMO = 140;
     private static final double MARGEN = 30;
 
-    private static final Color COLOR_NODO = Color.web("#faf7f2");
-    private static final Color COLOR_BORDE_NODO = Color.web("#2b2730");
-    private static final Color COLOR_ARISTA = Color.web("#d8d0e0");
-    private static final Color COLOR_INICIO = Color.web("#4caf50");
-    private static final Color COLOR_DESTINO = Color.web("#e8a33d");
-    private static final Color COLOR_RUTA = Color.web("#7c4dff");
-    private static final Color COLOR_CICLO = Color.web("#ff6f61");
+    private static final Color COLOR_NODO = Paleta.FONDO;
+    private static final Color COLOR_BORDE_NODO = Paleta.OSCURO;
+    private static final Color COLOR_ARISTA = Paleta.BORDE;
+    private static final Color COLOR_INICIO = Paleta.TURQUESA;
+    private static final Color COLOR_DESTINO = Paleta.LIMON_OSCURO;
+    private static final Color COLOR_RUTA = Paleta.TURQUESA;
+    private static final Color COLOR_CICLO = Paleta.PELIGRO;
 
     private VisualizadorGrafo() {
     }

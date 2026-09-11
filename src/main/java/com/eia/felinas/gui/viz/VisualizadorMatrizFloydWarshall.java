@@ -30,11 +30,11 @@ public final class VisualizadorMatrizFloydWarshall {
     private static final double ANCHO_CELDA = 44;
     private static final double ALTO_VISIBLE = 420;
 
-    private static final Color COLOR_ENCABEZADO = Color.web("#efe7f7");
-    private static final Color COLOR_DIAGONAL = Color.web("#f7f4fb");
-    private static final Color COLOR_SIN_RUTA_TEXTO = Color.web("#a9a1b5");
-    private static final Color COLOR_INFINITO_TEXTO = Color.web("#c0392b");
-    private static final Color COLOR_RESPUESTA_FONDO = Color.web("#e8a33d");
+    private static final Color COLOR_ENCABEZADO = Color.web("#e0f7fa");
+    private static final Color COLOR_DIAGONAL = Color.web("#f5fdf9");
+    private static final Color COLOR_SIN_RUTA_TEXTO = Color.web("#8aa8a5");
+    private static final Color COLOR_INFINITO_TEXTO = Paleta.PELIGRO;
+    private static final Color COLOR_RESPUESTA_FONDO = Paleta.LIMON;
 
     private VisualizadorMatrizFloydWarshall() {
     }
@@ -98,7 +98,7 @@ public final class VisualizadorMatrizFloydWarshall {
         if (!fw.hayRuta(i, j)) {
             return COLOR_SIN_RUTA_TEXTO;
         }
-        return Color.web("#2b2730");
+        return Paleta.OSCURO;
     }
 
     private static Color fondoDeLaCelda(int i, int j, int origen, int destino) {

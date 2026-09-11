@@ -1,79 +1,101 @@
 /*
- * Tema visual de "The Feline Graph Chronicles": crema/lavanda para el
- * contenido (mismo tono que usan los Canvas de gui.viz) y un sidebar oscuro
- * con morado como acento principal (Minerva) y dorado para las respuestas
- * clave. Paleta centralizada aqui para no repetir codigos de color en Java.
+ * Tema "Limon y Turquesa": limon es un guino directo al nombre del
+ * villano (Limon, el Lider del Mal) y turquesa es el color de Pola y
+ * Minerva. La paleta exacta vive tambien en Java (gui.viz.Paleta) para que
+ * los Canvas de los visualizadores usen los mismos tonos que esta hoja.
+ *
+ * JavaFX CSS no anima cambios de propiedad como el CSS web (no hay
+ * "transition"): los degradados y sombras de aqui dan la profundidad
+ * visual, y las animaciones de movimiento (fundidos, rebotes al
+ * seleccionar una mision) se hacen en Java con FadeTransition /
+ * ScaleTransition (ver App.java).
  */
 
 .root-app {
-    -fx-background-color: #faf7f2;
-    -fx-font-family: "Segoe UI", "System";
+    -fx-background-color: #f5fdf9;
+    -fx-font-family: "Segoe UI";
+}
+
+/* Fuente "intensa y creativa" para titulos: mas gruesa y con mas
+ * espaciado entre letras para que se sienta como el rotulo de un comic,
+ * sin depender de descargar una fuente externa. */
+.fuente-creativa {
+    -fx-font-family: "Segoe UI Black", "Segoe UI Semibold", "Segoe UI";
+    -fx-letter-spacing: 0.6px;
 }
 
 /* ---------- Barra lateral ---------- */
 
 .sidebar {
-    -fx-background-color: #2b2730;
+    -fx-background-color: linear-gradient(to bottom right, #0d2e31, #164e54);
     -fx-padding: 24 16 16 16;
 }
 
 .app-title {
-    -fx-text-fill: #faf7f2;
-    -fx-font-size: 19px;
-    -fx-font-weight: bold;
+    -fx-text-fill: #e8f26e;
+    -fx-font-size: 22px;
+    -fx-font-weight: 900;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 4, 0.3, 1, 2);
 }
 
 .app-subtitle {
-    -fx-text-fill: #b9aec7;
+    -fx-text-fill: #86e6da;
     -fx-font-size: 12px;
     -fx-font-style: italic;
 }
 
 .mission-card {
-    -fx-background-color: #3a3542;
-    -fx-background-radius: 10;
-    -fx-padding: 10 12;
+    -fx-background-color: linear-gradient(to bottom, #1f545a, #163d42);
+    -fx-background-radius: 12;
+    -fx-padding: 11 14;
     -fx-cursor: hand;
     -fx-alignment: CENTER-LEFT;
     -fx-max-width: infinity;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 5, 0, 0, 2);
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-radius: 12;
 }
 
 .mission-card:hover {
-    -fx-background-color: #4a4352;
+    -fx-background-color: linear-gradient(to bottom, #29666d, #1c4b52);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 8, 0, 0, 3);
 }
 
 .mission-card-selected {
-    -fx-background-color: #7c4dff;
+    -fx-background-color: linear-gradient(to bottom right, #26c6da, #00838f);
+    -fx-border-color: #e8f26e;
+    -fx-effect: dropshadow(gaussian, rgba(0,172,193,0.55), 12, 0.15, 0, 3);
 }
 
 .mission-card-titulo {
-    -fx-text-fill: #faf7f2;
+    -fx-text-fill: #f5fdf9;
     -fx-font-size: 13px;
     -fx-font-weight: bold;
 }
 
 .mission-card-peso {
-    -fx-text-fill: #cfc6db;
+    -fx-text-fill: #a9e0da;
     -fx-font-size: 10px;
 }
 
 /* ---------- Contenido central ---------- */
 
 .content-title {
-    -fx-font-size: 21px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #2b2730;
+    -fx-font-size: 23px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #0d2e31;
 }
 
 .content-subtitle {
     -fx-font-size: 12.5px;
-    -fx-text-fill: #6b6275;
+    -fx-text-fill: #4d7a76;
 }
 
 .label-seccion {
     -fx-font-size: 12.5px;
     -fx-font-weight: bold;
-    -fx-text-fill: #2b2730;
+    -fx-text-fill: #0d2e31;
 }
 
 .text-area-io .content {
@@ -81,30 +103,47 @@
 }
 
 .text-area-io {
-    -fx-border-color: #d8d0e0;
+    -fx-border-color: #b9d8d4;
+    -fx-border-width: 1.5;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
     -fx-font-family: "Consolas", "Courier New", monospace;
     -fx-font-size: 12.5px;
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.06), 4, 0, 0, 1);
 }
 
+.text-area-io:focused {
+    -fx-border-color: #00acc1;
+    -fx-effect: dropshadow(gaussian, rgba(0,172,193,0.35), 8, 0.2, 0, 0);
+}
+
+/* Boton primario en limon: es el boton que "vence a Limon" resolviendo la mision. */
 .btn-primario {
-    -fx-background-color: #7c4dff;
-    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to bottom, #e8f26e, #c6d94d);
+    -fx-text-fill: #123c40;
     -fx-font-weight: bold;
     -fx-background-radius: 8;
-    -fx-padding: 8 20;
+    -fx-padding: 9 22;
     -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(198,217,77,0.5), 8, 0.1, 0, 2);
 }
 
 .btn-primario:hover {
-    -fx-background-color: #6a3ff0;
+    -fx-background-color: linear-gradient(to bottom, #dbe85a, #b8ca3e);
+    -fx-effect: dropshadow(gaussian, rgba(198,217,77,0.7), 10, 0.15, 0, 3);
+}
+
+.btn-primario:pressed {
+    -fx-background-color: #afb42b;
+    -fx-effect: none;
+    -fx-translate-y: 1;
 }
 
 .btn-secundario {
     -fx-background-color: transparent;
-    -fx-text-fill: #7c4dff;
-    -fx-border-color: #7c4dff;
+    -fx-text-fill: #00838f;
+    -fx-border-color: #00acc1;
+    -fx-border-width: 1.5;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
     -fx-padding: 8 18;
@@ -112,28 +151,42 @@
 }
 
 .btn-secundario:hover {
-    -fx-background-color: #f0eaff;
+    -fx-background-color: #e0f7fa;
+    -fx-effect: dropshadow(gaussian, rgba(0,172,193,0.3), 6, 0.1, 0, 1);
+}
+
+.btn-secundario:pressed {
+    -fx-background-color: #b2ebf2;
+    -fx-translate-y: 1;
 }
 
 .panel-error {
-    -fx-background-color: #fdecea;
+    -fx-background-color: linear-gradient(to right, #fdecea, #fde3e0);
     -fx-text-fill: #c0392b;
     -fx-padding: 10 14;
     -fx-background-radius: 8;
     -fx-border-color: #f2b8b0;
     -fx-border-radius: 8;
     -fx-font-size: 12.5px;
+    -fx-effect: dropshadow(gaussian, rgba(192,57,43,0.15), 5, 0, 0, 1);
 }
 
 .panel-visualizacion {
     -fx-background-color: white;
-    -fx-border-color: #d8d0e0;
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
+    -fx-border-color: #b9d8d4;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(13,46,49,0.08), 10, 0, 0, 3);
 }
 
 .caso-titulo {
     -fx-font-size: 12px;
     -fx-font-weight: bold;
-    -fx-text-fill: #6b6275;
+    -fx-text-fill: #4d7a76;
+}
+
+.mascota-etiqueta {
+    -fx-text-fill: #86e6da;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
 }

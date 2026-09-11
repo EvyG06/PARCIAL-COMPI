@@ -35,13 +35,13 @@ public final class VisualizadorGrilla {
     private static final double CELDA_MINIMA_PX = 6;
     private static final double CELDA_MAXIMA_PX = 34;
 
-    private static final Color COLOR_BOMBA = Color.web("#2b2730");
-    private static final Color COLOR_LIBRE = Color.web("#faf7f2");
-    private static final Color COLOR_BORDE = Color.web("#d8d0e0");
-    private static final Color COLOR_INICIO = Color.web("#4caf50");
-    private static final Color COLOR_DESTINO = Color.web("#e8a33d");
-    private static final Color COLOR_RUTA_BFS = Color.web("#7c4dff");
-    private static final Color COLOR_RUTA_DFS = Color.web("#ff6f61");
+    private static final Color COLOR_BOMBA = Paleta.OSCURO;
+    private static final Color COLOR_LIBRE = Paleta.FONDO;
+    private static final Color COLOR_BORDE = Paleta.BORDE;
+    private static final Color COLOR_INICIO = Paleta.TURQUESA;
+    private static final Color COLOR_DESTINO = Paleta.LIMON_OSCURO;
+    private static final Color COLOR_RUTA_BFS = Paleta.TURQUESA;
+    private static final Color COLOR_RUTA_DFS = Paleta.PELIGRO;
 
     private VisualizadorGrilla() {
     }

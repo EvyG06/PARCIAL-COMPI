@@ -11,21 +11,29 @@ import com.eia.felinas.misiones.Samples;
 import com.eia.felinas.modelo.ResultadoBellmanFord;
 import com.eia.felinas.modelo.ResultadoFloydWarshall;
 import com.eia.felinas.parser.ErrorDeEntrada;
+import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +101,7 @@ public class App extends Application {
 
     private VBox construirBarraLateral() {
         Label titulo = new Label("The Feline\nGraph Chronicles");
-        titulo.getStyleClass().add("app-title");
+        titulo.getStyleClass().addAll("app-title", "fuente-creativa");
         Label subtitulo = new Label("Pola y Minerva contra Limon");
         subtitulo.getStyleClass().add("app-subtitle");
 
@@ -102,15 +110,86 @@ public class App extends Application {
         sidebar.setPrefWidth(250);
         sidebar.setMinWidth(250);
 
+        // Huellas decorativas: el motivo grafico del tema, sin depender de
+        // ningun archivo de imagen (Huellas las dibuja a mano en un Canvas).
+        HBox huellas = new HBox(6,
+                Huellas.dibujar(16, Color.web("#7fd8cf")),
+                Huellas.dibujar(14, Color.web("#7fd8cf")),
+                Huellas.dibujar(12, Color.web("#7fd8cf")));
+        huellas.setPadding(new Insets(10, 0, 0, 4));
+        sidebar.getChildren().add(huellas);
+
+        // Rincon de los villanos: solo aparece si las imagenes existen en
+        // src/main/resources/images/ (limon.png, nero.png). Carga
+        // defensiva: si faltan, la seccion completa se omite sin error.
+        Region rinconVillanos = construirTiraDePersonajes(
+                "Los villanos", new String[] {"limon.png", "nero.png"});
+        if (rinconVillanos != null) {
+            sidebar.getChildren().add(rinconVillanos);
+        }
+
         VBox tarjetas = new VBox(10);
-        tarjetas.setPadding(new Insets(24, 0, 0, 0));
+        tarjetas.setPadding(new Insets(20, 0, 0, 0));
         for (Mision mision : Mision.values()) {
             Button boton = construirTarjetaMision(mision);
             botonesMision.add(boton);
             tarjetas.getChildren().add(boton);
         }
         sidebar.getChildren().add(tarjetas);
+
+        // Espaciador que empuja a las heroinas al fondo del sidebar.
+        Region espaciador = new Region();
+        VBox.setVgrow(espaciador, Priority.ALWAYS);
+        sidebar.getChildren().add(espaciador);
+
+        Region tiraHeroinas = construirTiraDePersonajes(
+                "El equipo", new String[] {"pola.png", "minerva.png"});
+        if (tiraHeroinas != null) {
+            sidebar.getChildren().add(tiraHeroinas);
+        }
+
         return sidebar;
+    }
+
+    /**
+     * Tira horizontal de miniaturas de personajes con una etiqueta encima.
+     * Cada imagen se busca en /images/<archivo> dentro de los recursos; si
+     * NINGUNA de las imagenes solicitadas existe, devuelve null y el
+     * llamador simplemente no agrega nada al layout (nunca un hueco vacio
+     * ni un error por un recurso faltante).
+     */
+    private Region construirTiraDePersonajes(String etiqueta, String[] archivos) {
+        HBox fila = new HBox(8);
+        for (String archivo : archivos) {
+            ImageView imagen = cargarImagenOpcional(archivo, 64);
+            if (imagen != null) {
+                fila.getChildren().add(imagen);
+            }
+        }
+        if (fila.getChildren().isEmpty()) {
+            return null;
+        }
+        Label rotulo = new Label(etiqueta);
+        rotulo.getStyleClass().add("mascota-etiqueta");
+        VBox contenedor = new VBox(6, rotulo, fila);
+        contenedor.setPadding(new Insets(14, 0, 0, 0));
+        return contenedor;
+    }
+
+    /** Carga una imagen de /images/ en el classpath, o null si no existe. */
+    private ImageView cargarImagenOpcional(String nombreArchivo, double ancho) {
+        try (InputStream flujo = getClass().getResourceAsStream("/images/" + nombreArchivo)) {
+            if (flujo == null) {
+                return null;
+            }
+            ImageView vista = new ImageView(new Image(flujo));
+            vista.setFitWidth(ancho);
+            vista.setPreserveRatio(true);
+            vista.setSmooth(true);
+            return vista;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     private Button construirTarjetaMision(Mision mision) {
@@ -119,7 +198,12 @@ public class App extends Application {
         linea1.setWrapText(true);
         Label linea2 = new Label(mision.etiquetaPeso);
         linea2.getStyleClass().add("mission-card-peso");
-        VBox contenido = new VBox(2, linea1, linea2);
+        VBox textos = new VBox(2, linea1, linea2);
+
+        // Huella pequena como icono: refuerza el motivo gatuno en cada
+        // tarjeta sin depender de ningun archivo de imagen.
+        HBox contenido = new HBox(10, Huellas.dibujar(20, Color.web("#e8f26e")), textos);
+        contenido.setAlignment(Pos.CENTER_LEFT);
 
         Button boton = new Button();
         boton.setGraphic(contenido);
@@ -134,7 +218,9 @@ public class App extends Application {
         for (int i = 0; i < Mision.values().length; i++) {
             botonesMision.get(i).getStyleClass().remove("mission-card-selected");
         }
-        botonesMision.get(mision.ordinal()).getStyleClass().add("mission-card-selected");
+        Button tarjetaElegida = botonesMision.get(mision.ordinal());
+        tarjetaElegida.getStyleClass().add("mission-card-selected");
+        animarSeleccion(tarjetaElegida);
 
         tituloContenido.setText(mision.titulo);
         subtituloContenido.setText(mision.descripcion);
@@ -142,13 +228,34 @@ public class App extends Application {
         areaSalida.clear();
         ocultarError();
         contenidoVisualizacion.getChildren().clear();
+        animarAparicion(tituloContenido);
+    }
+
+    /** Pequeno "rebote" en la tarjeta elegida: JavaFX CSS no anima
+     * cambios de estilo por si solo, asi que el efecto de movimiento se
+     * hace en Java con una ScaleTransition ida y vuelta. */
+    private void animarSeleccion(Button tarjeta) {
+        ScaleTransition rebote = new ScaleTransition(Duration.millis(140), tarjeta);
+        rebote.setFromX(0.96);
+        rebote.setFromY(0.96);
+        rebote.setToX(1.0);
+        rebote.setToY(1.0);
+        rebote.play();
+    }
+
+    /** Fundido de entrada para que el contenido no aparezca de golpe. */
+    private void animarAparicion(Node nodo) {
+        FadeTransition fundido = new FadeTransition(Duration.millis(220), nodo);
+        fundido.setFromValue(0.2);
+        fundido.setToValue(1.0);
+        fundido.play();
     }
 
     // ---------- Contenido central ----------
 
     private VBox construirContenido() {
         tituloContenido = new Label();
-        tituloContenido.getStyleClass().add("content-title");
+        tituloContenido.getStyleClass().addAll("content-title", "fuente-creativa");
         subtituloContenido = new Label();
         subtituloContenido.getStyleClass().add("content-subtitle");
         subtituloContenido.setWrapText(true);
@@ -237,6 +344,7 @@ public class App extends Application {
                 case TRES -> resolverMision3();
                 case CUATRO -> resolverMision4();
             }
+            animarAparicion(contenidoVisualizacion);
         } catch (ErrorDeEntrada e) {
             mostrarError(e.getMessage());
         } catch (RuntimeException e) {

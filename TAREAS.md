@@ -35,11 +35,13 @@
       + test (`100`, `150`, `Nina is very sad`)
 - [x] Misión 4 (12%): Union-Find con path compression + union by size/rank, Kruskal ordenando
       aristas (O(C log C)) + test (`55`, y el caso `Limon cut too many cables`)
-- [ ] GUI base (14%): selector de las 4 misiones, áreas de texto de entrada/salida,
-      botón "cargar sample" por misión, manejo de errores legible, tema gatuno
-- [ ] Visualización de grafos (16%, compartido): dibujo de nodos/aristas con resaltado de la
-      ruta (M2), de los cables del MST (M4) y del ciclo/ruta (M3 — reutilizable).
-      Límites: M2/M3 hasta 60 nodos, M4 hasta 100 intersecciones y 300 cables
+- [x] GUI base (14%): selector de las 4 misiones (App.java + tema.css), áreas de
+      entrada/salida, botón "cargar sample", manejo de errores legible, tema gatuno —
+      verificado corriendo la app real (Misiones 1, 2 y 3 probadas con captura de pantalla)
+- [x] Visualización de grafos (16%, compartido): `VisualizadorGrafo` — layout circular,
+      resalta la ruta (M2 Dijkstra, verificado en vivo), la ruta o el ciclo (M3, cableado y
+      compilando) y el conjunto de aristas del MST (M4, mismo motor de dibujo que M2/M3 —
+      pendiente de una verificación visual propia, revisar antes de la defensa)
 - [ ] AI_USAGE.md: herramientas usadas, 2-3 prompts decisivos, ≥2 salidas erróneas de la IA
       y cómo se corrigieron, qué aprendió cada uno
 

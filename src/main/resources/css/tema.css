@@ -1,0 +1,139 @@
+/*
+ * Tema visual de "The Feline Graph Chronicles": crema/lavanda para el
+ * contenido (mismo tono que usan los Canvas de gui.viz) y un sidebar oscuro
+ * con morado como acento principal (Minerva) y dorado para las respuestas
+ * clave. Paleta centralizada aqui para no repetir codigos de color en Java.
+ */
+
+.root-app {
+    -fx-background-color: #faf7f2;
+    -fx-font-family: "Segoe UI", "System";
+}
+
+/* ---------- Barra lateral ---------- */
+
+.sidebar {
+    -fx-background-color: #2b2730;
+    -fx-padding: 24 16 16 16;
+}
+
+.app-title {
+    -fx-text-fill: #faf7f2;
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+}
+
+.app-subtitle {
+    -fx-text-fill: #b9aec7;
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+}
+
+.mission-card {
+    -fx-background-color: #3a3542;
+    -fx-background-radius: 10;
+    -fx-padding: 10 12;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER-LEFT;
+    -fx-max-width: infinity;
+}
+
+.mission-card:hover {
+    -fx-background-color: #4a4352;
+}
+
+.mission-card-selected {
+    -fx-background-color: #7c4dff;
+}
+
+.mission-card-titulo {
+    -fx-text-fill: #faf7f2;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.mission-card-peso {
+    -fx-text-fill: #cfc6db;
+    -fx-font-size: 10px;
+}
+
+/* ---------- Contenido central ---------- */
+
+.content-title {
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2b2730;
+}
+
+.content-subtitle {
+    -fx-font-size: 12.5px;
+    -fx-text-fill: #6b6275;
+}
+
+.label-seccion {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2b2730;
+}
+
+.text-area-io .content {
+    -fx-background-color: white;
+}
+
+.text-area-io {
+    -fx-border-color: #d8d0e0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12.5px;
+}
+
+.btn-primario {
+    -fx-background-color: #7c4dff;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}
+
+.btn-primario:hover {
+    -fx-background-color: #6a3ff0;
+}
+
+.btn-secundario {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7c4dff;
+    -fx-border-color: #7c4dff;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 18;
+    -fx-cursor: hand;
+}
+
+.btn-secundario:hover {
+    -fx-background-color: #f0eaff;
+}
+
+.panel-error {
+    -fx-background-color: #fdecea;
+    -fx-text-fill: #c0392b;
+    -fx-padding: 10 14;
+    -fx-background-radius: 8;
+    -fx-border-color: #f2b8b0;
+    -fx-border-radius: 8;
+    -fx-font-size: 12.5px;
+}
+
+.panel-visualizacion {
+    -fx-background-color: white;
+    -fx-border-color: #d8d0e0;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.caso-titulo {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6b6275;
+}

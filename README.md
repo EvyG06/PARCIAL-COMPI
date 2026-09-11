@@ -112,10 +112,9 @@ mañana cambiáramos JavaFX por Swing, ni una línea de `algoritmos`,
 
 ## Limitaciones conocidas
 
-- La visualización de grafos dirigidos con el ciclo resaltado (Misión 3,
-  caso "Infinite churun!") y la red de la Misión 4 están en desarrollo.
-- El tema visual "gatuno" de la GUI (paleta, iconografía de Pola/Minerva
-  vs. Limon) se está refinando junto con el selector de misiones.
+- La visualización de la Misión 4 (`VisualizadorGrafo.dibujarConjuntoDestacado`)
+  usa el mismo motor de dibujo ya verificado en vivo para la Misión 2, pero
+  aún no se comprobó visualmente por sí sola — pendiente antes de la defensa.
 
 _(Esta sección se debe mantener actualizada a medida que avanza el
 proyecto; antes de la entrega final no debe quedar ningún ítem pendiente
